@@ -1,0 +1,39 @@
+@app.route('/product', methods=["POST"])
+def create_product():
+    data = request.get_json()
+    name = data['name']
+    price = data['price']
+    barcode = data['barcode']
+    mobilenum = data['mobilenum']
+    description = data['description']
+
+    item = Products(
+        name=name,
+        price=price,
+        barcode=barcode,
+        mobilenum=mobilenum,
+        description=description,
+    )
+    db.session.add(item)
+    db.session.commit()
+    db.session.close()
+
+    return jsonify({'Added': f"{name} added successfully"}), 201
+
+
+@app.route('/getProducts', methods=["GET"])
+def get_products():
+    all_products = Products.query.all()
+    product_list = []
+    for product in all_products:
+        product_data = {
+            'id': product.id,
+            'name': product.name,
+            'price': product.price,
+            'barcode': product.barcode,
+            'mobileNum': product.mobilenum,
+            'desciption': product.description
+        }
+        product_list.append(product_data)
+
+    return jsonify(product_list), 200
