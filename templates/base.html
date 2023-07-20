@@ -13,15 +13,31 @@
   </head>
   <style>
     body {
-      background-color: #212121;
-      color:azure
+      background-color: #d9dcdc;
+      color:rgb(75, 76, 76);
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      padding-top: 20px;
+          }
+
+    td, th {
+      border: 1px solid #555454;
+      text-align: left;
+      padding: 8px;
+           }
+    
+    tr:nth-child(even) {
+      background-color: #838383;
+           }
     }
   </style>
   <body>
     {% include 'navbar.html' %}
 
     {% block content %}
-
 
     {% endblock content %}
 

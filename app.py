@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, jsonify
+from flask import Flask, render_template
+# from flask import jsonify
 from config import DATABASE_URI
 from dotenv import load_dotenv
 import os
@@ -48,9 +49,20 @@ def init_db(app):
 init_db(app)
 
 
-@app.route('/info', methods=["GET"])
-def info():
-    return jsonify({"message": "Get link is working"}), 200
+# @app.route('/info', methods=["GET"])
+# def info():
+#     return jsonify({"message": "Get link is working"}), 200
+
+
+@app.route('/home')
+def home_page():
+    products = Products.query.all()
+    return render_template('home.html', products=products)
+
+
+@app.route('/market')
+def market_page():
+    render_template('market.html')
 
 
 if __name__ == "__main__":

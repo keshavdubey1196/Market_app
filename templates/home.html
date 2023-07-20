@@ -1,15 +1,30 @@
 {% extends 'base.html' %}
 
 
-
 {% block title %}
 HomePage
 {% endblock title %}
 
 
-
 {% block content %}
 
-<h1>This is our home page</h1>
+<table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>MobileNum</th>
+      <th>Description</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.mobilenum}}</td>
+      <td>{{product.description}}</td>
+    </tr>
+    {% endfor %}
+  </table>  
 
 {% endblock content %}
