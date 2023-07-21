@@ -17,6 +17,26 @@ db = SQLAlchemy()
 migrate = Migrate(app, db)
 
 
+user_products = db.Table('user_products',
+                         db.Column('user_id', db.Integer(),
+                                   db.ForeignKey('users.id')),
+                         db.Column('product_id', db.Integer(),
+                                   db.ForeignKey('products.id'))
+                         )
+
+
+class User(db.Model):
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
+    username = db.Column(db.String(50), nullable=False, unique=True)
+    email_address = db.Column(db.String(50), nullable=False)
+    password_hash = db.Column(db.String(60), nullable=False, unique=True)
+    budget = db.Column(db.Integer(), nullable=False, default=1000)
+    products = db.relationship(
+        'Product', secondary=user_products, backref='owners')
+
+
 class Products(db.Model):
     __tablename__ = "products"
 
