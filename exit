@@ -1,0 +1,29 @@
+[33mcommit 32cca4bdd6f81e854d8aca535bb0a886fa213cf9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: keshav <keshavsharma1196@gmail.com>
+Date:   Fri Jul 21 23:52:00 2023 +0530
+
+    adding user model and another connecting model(user_products) to establish manytomany rel bw user and products
+
+[33mcommit 800e1572172be8cc4f444d2db58d7d1aefe54686[m
+Author: keshav <keshavsharma1196@gmail.com>
+Date:   Fri Jul 21 01:38:35 2023 +0530
+
+    adding home and market view
+
+[33mcommit 0ddf5086ca39e6c7961253cf15a5cc6b32dd9c0d[m
+Author: keshav <keshavsharma1196@gmail.com>
+Date:   Fri Jul 21 00:21:48 2023 +0530
+
+    adding variables in migrations/alembic.ini and excluding migrations in gitignore
+
+[33mcommit fb5046235207190288df07aa13e35419e181a89d[m
+Author: keshav <keshavsharma1196@gmail.com>
+Date:   Fri Jul 21 00:15:10 2023 +0530
+
+    initial project setup
+
+[33mcommit 4015596bff060ebd16d21bc1ae887b958927272d[m
+Author: Keshav Dubey <96947117+keshavdubey1196@users.noreply.github.com>
+Date:   Fri Jul 21 00:12:47 2023 +0530
+
+    Initial commit

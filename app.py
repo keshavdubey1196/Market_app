@@ -5,6 +5,7 @@ from config import DATABASE_URI
 from dotenv import load_dotenv
 import os
 from flask_migrate import Migrate
+from forms import RegisterForm
 
 
 load_dotenv()
@@ -34,7 +35,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(60), nullable=False, unique=True)
     budget = db.Column(db.Integer(), nullable=False, default=1000)
     products = db.relationship(
-        'Product', secondary=user_products, backref='owners')
+        'Products', secondary=user_products, backref='owners')
 
 
 class Products(db.Model):
@@ -82,7 +83,13 @@ def home_page():
 
 @app.route('/market')
 def market_page():
-    render_template('market.html')
+    return render_template('market.html')
+
+
+@app.route('/register')
+def register():
+    form = RegisterForm()
+    return render_template('register.html', form=form)
 
 
 if __name__ == "__main__":
